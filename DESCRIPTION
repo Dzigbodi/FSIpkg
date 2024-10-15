@@ -9,6 +9,7 @@ Encoding: UTF-8
 Imports:
     stats,
     dplyr,
+    lubridate,
     tidyr,
     stringr,
     openxlsx,

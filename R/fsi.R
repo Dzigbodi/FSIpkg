@@ -235,6 +235,7 @@ fsi_countries <- function() {
 
 #' read_fsi
 #' @import dplyr
+#' @import lubridate
 #' @import tidyr
 #' @import stringr
 #' @import openxlsx
@@ -335,7 +336,8 @@ read_fsi <- function(startyear = NULL,
 
   df_fsi <- lapply(link_list, function(link) {
     cat(".")
-    temp <- read.xlsx(link)
+    temp <- read.xlsx(link, detectDates = TRUE)|>
+            mutate(Year=ifelse(is.Date(.data$Year), year(.data$Year), .data$Year))
     return(temp)
   }) |>
     bind_rows() |>
