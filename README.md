@@ -13,6 +13,10 @@ country name and series names.
 ## Install package
 
 ``` r
+#devtools::install_github("Dzigbodi/FSIpkg")
+```
+
+``` r
 library(FSIpkg)
 ```
 
