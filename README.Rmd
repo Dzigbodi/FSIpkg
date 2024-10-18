@@ -1,0 +1,58 @@
+---
+title: "FSIpkg"
+author: "Richard Amegble"
+date: "2024-10-14"
+output: github_document
+---
+
+## Introduction
+
+This package allows to extract [Fragile States Index](https://fragilestatesindex.org/). `read_fsi` is built to perform this extraction. There are another two functions that help to find the country name and series names. 
+
+## Install package 
+```{r, warning=FALSE, message=FALSE}
+#devtools::install_github("Dzigbodi/FSIpkg")
+```
+
+```{r}
+library(FSIpkg)
+```
+
+## List of series 
+
+```{r}
+head(fsi_series())
+```
+## List of Countries 
+
+```{r}
+print(fsi_countries())
+```
+## Extraction between period
+
+```{r}
+df <- read_fsi( startyear=2020, endyear = 2021)
+print(head(df))
+```
+
+
+## Extraction list of countries
+```{r}
+country_list <- c("Togo", "Canada", "Ghana")
+df_country <- read_fsi(startyear=2020, endyear = 2021,country = country_list )
+print(head(df_country))
+```
+
+## Remove the Rank and Total from the extraction
+```{r}
+df <- read_fsi(startyear=2020, endyear = 2021,country = country_list ,rank = F, total = F)
+print(head(df))
+```
+
+## Extraction of the whole data
+
+```{r}
+df <- read_fsi()
+print(head(df))
+```
+
