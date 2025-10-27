@@ -31,7 +31,7 @@ print(fsi_countries())
 ## Extraction between period
 
 ```{r}
-df <- read_fsi( startyear=2020, endyear = 2021)
+df <- read_fsi( startyear=2023, endyear = 2024)
 print(head(df))
 ```
 
